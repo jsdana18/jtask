@@ -1,0 +1,164 @@
+$ rails new vue_example --skip-turbolinks --webpack=vue
+# === git ===
+# $ git init
+# $ git remote add origin git@github.com:mothergoosevery/jatask.git
+# $ git add .
+# $ git commit -m "first"
+# $ git push -u origin master
+# $ heroku git:remote -a jatask
+
+# heroku-18 set
+$ heroku create <app> --stack heroku-18 #在heroku 開啟新的 app
+$ heroku stack:set heroku-18 #設定已有的 app 在 stack-18
+
+# 修改 config/webpack.yml 中 check_yarn_integrity: false
+# 修改 config/database.yml 中：
+# production:
+# <<: *default
+# adapter: postgresql
+
+# === webpack & 使用 vue 套件===
+$ yarn add css-loader@4.2.1 moment vuex@3.5.1 axios tailwindcss@1.6.2
+#$ yarn add webpack 
+
+# === foreman 同時開啟 vue 和 rails  ==
+$ gem 'foreman'
+# 在 root 底下新增 Procfile.dev ﹙為避免 Heroku 上衝突﹚內容如下：
+# backend: rails s -p 3000
+# frontend: bin/webpack-dev-server
+# job: rake jobs:work
+$ foreman start -f Procfile.dev 
+
+# == 安裝 tailwindcss ==
+#$ yarn add tailwindcss # 若輸入 $yarn add tailwindcss --dev 則只在開發階段使用
+$ mkdir app/javascript/css
+# 把 app/javascript 改為 app/fronted (不改也可以)
+$ yarn tailwind init app/javascript/css/tailwind.js
+# app/javascript/css/application.scss  #新增 application.scss 檔案 (.css有問題)
+# 在 application.css 中加入下列三行：
+# @import "tailwindcss/base";
+# @import 'custom_base';
+# @import "tailwindcss/components";
+# @import 'custom_components';
+# @import "tailwindcss/utilities";
+# @import 'custom_utilities'
+# 在 app/views/layouts/application.html.erb 中加入：
+# <%= javascript_pack_tag 'application'%>
+# <%= stylesheet_pack_tag 'application'%>
+# 在 app/javascript/packs/application.js 加入：
+# import '../css/application.scss'
+# 在 root 目錄中的 postcss.config.js 加入：
+# plugins: [
+#      require('tailwindcss')('./app/javascript/css/tailwind.js'),
+#      require('autoprefixer'),
+# ]
+
+# == rspec設定 ===
+# 安裝測試 gem，會建立 rspec 目錄。用 rspec代替內建的測試，故 test 目錄可以刪除
+$ rails g rspec:install
+# 刪除整個 test 資料夾
+
+$ rails g kaminari:config #分頁的 gem，rails admin 需使用這個
+
+# === 變更時間成 taipei 時間 ==
+# 在 app/config/application.rb 新增
+# config.time_zone = "Taipei"
+# config.active_record.default_timezone = :local
+
+
+# === user 登入 ===
+$ rails g controller user
+$ rails g controller session
+$ rails g model user name email password_digest session_token isadmin:boolean
+
+# === task === 狀態（待處理、進行中、完成） 優先順序（高、中、低）
+$ rails g controller task
+$ rails g model task name content aasm_state priority user:belongs_to end_date:datetime
+
+# === label ===
+$ rails g controller tag 
+$ rails g model tag name 
+$ rails g model tag_task task:belongs_to tag:belongs_to
+
+# === task ===
+$ rails g controller admin
+# $ rails g model admin title content 
+
+
+
+
+
+# === 匯入 DB 原始資料 ====
+$ rake dev:rebuild
+$ rake dev:fake
+$ rake db:seed
+$ rake db:seeds:db_item
+$ rake db:migrate
+$ rake db:migrate VERSION=0
+
+# 產生整理 item 的 job
+# $ rails g job uilog
+
+
+# == 變更資料 ==
+--$ rails g migration add_userid_to_tag user_id:integer
+--$ rails g migration change_folder_to_tag folder:integer
+--$ rails g migration rename_tdate_to_useritemlog tdate:datetime opened:boolean
+# add_column :advises, :topon, :integer, default: 0
+# rename_column :advises, :user_id, :user
+# change_column :table_name, :column_name, :new_type
+# table 中設為十進位數及二位數小數點
+# change_column :my_table, :my_column, :decimal, scale: 2
+
+# == add column reference ===
+# add_column :user_item_asso, :last_wish_id, :integer
+# add_index :user_item_asso, :last_wish_id
+#在model 中 has_one :wish, foreign_key: 'last_wish_id'
+
+# == 刪除資料 ==
+# $ rails g migration DropArticle
+# 內部 drop_table :delayed_jobs
+# remove_column :sample_apps, :country, :string
+# remove_index :tablename, :picture_id
+# remove_foreign_key :articles, :user_id
+# remove_reference :articles, :user_id, index: true, foreign_key: true
+# $ rails d controller Article
+# $ rails d model Article
+
+# == remove a project ==
+# $ rake db:drop
+# $ cd .. && rm -rf app_a
+
+# == git ==
+$ git log --oneline
+$ git reflog #查看版本列表
+$ git reflog --oneline #每版本一行，查看版本列表
+$ git reset <版本號> --hard #回復版本
+$ git push -f #強制推送出去
+$ git commit -m --amend <內容> #--amend 參數只能處理最後一次commit內容而已
+$ git commit --amend --no-edit #把檔案並入最後一次commit，--no-edit不變更最後commit訊息
+$ git branch <分支名> #開新分支
+$ git branch -d <分支名> #刪除分支
+$ git branch -D <分支名> #強制刪除分支
+$ git checkout <分支名> #切換分支
+
+
+# ====== 練習選票系統 ===
+# 5. copy mbuddha05-選票
+$ rails g controller candidates
+--$ rails g model candidate name party age:integer politics:text votes:integer
+$ rails g model candidate name party age:integer politics:text votes:integer vote_logs_count:integer
+#編輯 xxxxx_create_candidates，修改為 t.integer :votes, default: 0 來設定預設值
+$ rake db:migrate
+# 在 app/views/candidates 目錄下新增 index, new, edit.html.erb
+
+# 建立投票時間和 ip 的 model：1.投票時間, 2.投票給誰, 3.投票時候的 IP 位置。
+$ rails g model vote_log candidate:references ip_address:string
+$ rake db:migrate
+
+#//雖然只有 3 筆資料，但卻做了 4 次查詢，這是一種所謂的「N+1問題」，非常浪費系統效能。
+#//要解決這個問題，可以使用 Counter Cache 做法。
+#//「把投票結果更新到 Candidate Model 裡，投票紀錄留在 VoteLog Model 裡」
+#//<%= candidate.vote_logs.count %> 改成 <%= candidate.vote_logs.size %> 把count改成size，若還是用 count 會做 n+1查詢
+#//這樣同時可兼顧效能也可記錄過程。首先在 Candidate Model 開一個 integer 型態的欄位，名稱叫做 vote_logs_count
+--$ rails g migration add_counter_to_candidate vote_logs_count:integer
