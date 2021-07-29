@@ -7,7 +7,7 @@ export default function() {
   const csrfToken = document.querySelector("meta[name=csrf-token]").content
   //axios.defaults.baseURL='http://localhost:3000'
   axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
-  axios.defaults.xsrfCookieName = "JATOKEN";
+  axios.defaults.xsrfCookieName = "JTOKEN";
   axios.defaults.xsrfHeaderName = "X-CSRF-Token";
   axios.defaults.timeout = 5000;
 }

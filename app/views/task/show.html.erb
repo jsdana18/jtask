@@ -1,0 +1,19 @@
+<section class="py-8 px-8 mr-auto ml-auto max-w-4xl">
+
+<div class="max-w-2xl border grid rounded text-gray-700 s2">
+
+<div class="my-4 px-4 s5 text-purpled-600"><%= @task.name %></div>
+
+<div class="my-4 px-4 mb-8"><%= @task.content %></div>
+
+<div class="my-4 px-4">狀態：<%= @task.aasm_state %></div>
+
+<div class="my-4 px-4">優先順序：<%= @task.priority %></div>
+
+<div class="my-4 px-4 mb-8">工作結束日期：<%= @task.end_date %></div>
+
+<div class="my-4 px-4 s1 text-right">建立日期：<%= @task.created_at.strftime("%Y 年 %m 月 %d 日") %></div>
+
+</div>
+
+</section>

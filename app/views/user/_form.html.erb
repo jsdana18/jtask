@@ -1,0 +1,31 @@
+<section class="max-w-4xl ml-auto mr-auto mt-4 mb-16">
+
+<%= form_with model: obj, url: spath, local: true do |f| %>
+
+    <div class="myfield">
+        <%= f.label "#{act} 帳號" %>
+        <%= f.text_field :name %>
+    </div>
+
+     <div class="myfield">
+        <%= f.label "#{act} email" %>
+        <%= f.text_field :email %>
+    </div>
+
+    <div class="myfield">
+        <%= f.label "password 密碼" %>
+        <%= f.password_field :password %>
+    </div>
+
+    <div class="myfield">
+        <%= f.label "password 密碼再確認" %>
+        <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class="myfield">
+        <%= f.submit act %>
+    </div>
+    
+<% end %>
+
+</section>

@@ -21,16 +21,19 @@
 
 
 /* == flash == */
-.flash {}
+.flash {
+    @apply mr-auto ml-auto max-w-6xl s2 py-2 px-3 rounded border;}
 
-.flash .notice {
-    @apply bg-blue-100 border-blued-400 text-blued-700;}
-.flash .success {
-    @apply bg-teal-100 border-greend-400 text-greend-700;}
-.flash .error {
-    @apply bg-red-100 border-redd-400 text-redd-700;}
-.flash .alert {
-    @apply bg-yellow-100 border-yellowd-400 text-yellowd-700;} 
+.flash.notice {
+@apply bg-blued-100 border-blued-400 text-blued-650;}
+.flash.success {
+@apply bg-greend-100 border-greend-400 text-greend-650;}
+.flash.error {
+@apply bg-redd-100 border-redd-400 text-redd-650;}
+.flash.alert {
+@apply bg-yellowd-100 border-yellowd-400 text-yellowd-650;} 
+
+
 
 /* fadein fadeout */
 @keyframes fadein {

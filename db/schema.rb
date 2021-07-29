@@ -10,19 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_084415) do
+ActiveRecord::Schema.define(version: 2021_07_29_092858) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "content"
     t.string "aasm_state"
     t.string "priority"
-    t.integer "user_id", null: false
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  add_foreign_key "tasks", "users"
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "session_token"
+    t.boolean "isadmin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
+  end
+
 end

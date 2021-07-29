@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :content
       t.string :aasm_state
       t.string :priority
-      t.belongs_to :user, null: false, foreign_key: true
+      # t.belongs_to :user, null: false, foreign_key: true
       t.datetime :end_date
 
       t.timestamps
