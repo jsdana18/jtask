@@ -1,0 +1,18 @@
+<info-loading></info-loading>
+<info-modal></info-modal>
+
+<% if cookies[:isprivacy]=="false" %>
+	<info-privacy></info-privacy>
+<% end %>
+
+<% if !flash.empty?  %>
+    
+	<% flash.each do |key, value| %>
+		<info-flash ckey="<%= key %>" cmsg="<%= value %>"></info-flash> 
+	<% end %>
+
+<% else %>
+
+	<info-flash></info-flash>
+
+<% end %>

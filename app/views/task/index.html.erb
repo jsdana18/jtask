@@ -1,7 +1,45 @@
+<section class="py-8 px-8 mr-auto ml-auto">
 
+<%= paginate @tasks %>
 
-normal task index
+<div class="max-w-6xl ml-auto mr-auto">
 
-<div class="text-blued-700 s2">
-tailwindcss
+    <% if @tasks.count <= 0 %>
+
+        <div class="tracking-widest text-purpled-700 py-6 s6 text-center "> 無任何資料 </div>
+    
+    <% else %>
+
+    <div class="w-full">
+
+        <div class="flex flex-wrap">
+            <div class="w-full s3">
+
+                <%= @tasks.each.with_index do | e, index | %>
+
+                <div class="flex-wrap flex w-full justify-between s2 sm:pl-2 lg:pl-16 rounded">
+                    <div class="flex-grow pl-6 cursor-pointer align-bottom tracking-wider break-all text-gray-700 "> 
+                        <a href="<%= task_path(e.id) %>" class="max-w-4xl align-bottom hover:text-white hover:bg-yellowd-550"><span class="text-yellowd-550 rounded py-1 px-2 text-center"><%= index+1 %></span> <%= e.name %></a>
+                    </div>
+                    
+                    <div class="flex-shrink ml-6 pr-4 s1 py-2 text-gray-700"><i class="material-icons align-middle pb-1 pr-1">access_time</i> <%= e.created_at.strftime("%Y-%m-%d") %> </div>
+                    <div class="flex-shrink pr-4"> <a href="<%= edit_task_path(e.id) %>"> 編輯 </a> </div>
+                    <div class="flex-shrink pr-4"> <a href="<%= task_path(e.id) %>" data-method="delete"> 刪除 </a> </div>
+                </div>
+
+                <% end %>
+            </div>
+            
+        </div>
+ 
+
+    </div>
+
+    <% end %>
+
 </div>
+
+
+<%= paginate @tasks %>
+
+</section>
