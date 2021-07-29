@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version：2.6.5
 
-* System dependencies
+* Database
 
-* Configuration
+* rails g model user name email password_digest session_token isadmin:boolean
 
-* Database creation
+* rails g model task name content aasm_state priority user:belongs_to end_date:datetime
 
-* Database initialization
+* rails g model tag name
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* rails g model tag_task task:belongs_to tag:belongs_to

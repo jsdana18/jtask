@@ -1,11 +1,11 @@
 $ rails new vue_example --skip-turbolinks --webpack=vue
 # === git ===
 # $ git init
-# $ git remote add origin git@github.com:mothergoosevery/jatask.git
+# $ git remote add origin git@github.com:mothergoosevery/jtask.git
 # $ git add .
 # $ git commit -m "first"
 # $ git push -u origin master
-# $ heroku git:remote -a jatask
+# $ heroku git:remote -a jjtask
 
 # heroku-18 set
 $ heroku create <app> --stack heroku-18 #在heroku 開啟新的 app
