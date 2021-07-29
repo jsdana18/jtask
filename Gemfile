@@ -72,7 +72,7 @@ gem 'mini_racer', '~> 0.3.1' #修正 asset precompile 問題
 
 gem 'kaminari', '~> 1.2'  #分頁功能 rails_admin 需使用
 
-gem 'ransack' # 查詢搜尋
+# gem 'ransack' # 查詢搜尋
 gem 'aasm', '~> 4.11' #狀態機
 
 # 多國語系
