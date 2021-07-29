@@ -1,0 +1,64 @@
+
+/* == nav left == */
+@media screen and (max-width: 768px) {
+    .nav_con_left {
+        @apply relative left-0;
+        transition: left .4s;}
+
+    .nav_con_left out{
+        left: 70%;}
+
+    .nav_side_left {
+        @apply bottom-0 left-0 fixed overflow-hidden;
+
+        top: 50px;
+        width: 70%;
+        transition:width .4s;}
+
+    .nav_side_left in {
+        @apply w-0;}
+}
+
+
+/* == flash == */
+.flash {}
+
+.flash .notice {
+    @apply bg-blue-100 border-blued-400 text-blued-700;}
+.flash .success {
+    @apply bg-teal-100 border-greend-400 text-greend-700;}
+.flash .error {
+    @apply bg-red-100 border-redd-400 text-redd-700;}
+.flash .alert {
+    @apply bg-yellow-100 border-yellowd-400 text-yellowd-700;} 
+
+/* fadein fadeout */
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
+// kaminari 設定
+.pagination {
+    @apply mr-auto ml-auto s2 my-6 text-center max-w-4xl;
+
+    a {
+        @apply border border-gray-200 text-gray-500 py-1 px-2 my-4 mx-2 rounded;
+    }
+    a:hover {
+        @apply bg-greend-200 text-gray-700;
+    }
+    span.current {
+        @apply text-gray-500 bg-greend-200 s2 my-4 py-1 pl-2 pr-1 mx-2 rounded;
+    }
+    span.gap{
+        @apply mx-4;
+    }
+    
+}

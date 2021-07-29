@@ -1,0 +1,9 @@
+/* `@import` statements must come first */
+
+@import "tailwindcss/base";
+@import 'custom_base';
+@import "tailwindcss/components";
+@import 'custom_components';
+@import "tailwindcss/utilities";
+@import 'custom_utilities';
+@import "tailwindcss/screens";

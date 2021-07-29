@@ -1,0 +1,106 @@
+* {
+  //font-family: 'cwTeXFangSong','微軟正黑體', 'Noto sans TC','Crimson Text', Helvetica, Arial, "微軟正黑體", Heiti TC, "メイリオ", sans-serif;
+  //@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+  //font-family: '微軟正黑體', 'Noto sans TC','Crimson Text', Helvetica, Arial, Heiti TC, "メイリオ", sans-serif;
+  @apply font-sans font-hairline;
+  /*font-family: '標楷體','DFKai-sb,BiauKai','AR PL UKai TW';
+  @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+  */
+}
+
+p { 
+  @apply leading-relaxed my-2; }
+
+a {
+  transition: all ease-in-out 280ms; }
+
+.field_with_errors {
+  @apply w-full; }
+
+.field_with_errors input {
+  @apply w-full border border-red-300; }
+
+/* == form ==*/
+form {
+  @apply mr-auto ml-auto block px-2;
+}
+
+input.success {
+  @apply border border-greend-700;}
+input.error {
+  @apply border border-redd-700;}
+
+
+
+.myfield{
+  @apply flex-wrap block w-full justify-start py-4 align-middle;
+  @apply text-gray-700;
+}
+
+label {
+  @apply w-full tracking-wider block rounded align-middle px-3 py-3;
+  @apply s2 text-gray-700;
+}
+
+input, textarea, input[type=text] {
+  @apply s2 outline-none block w-full rounded border align-middle py-2 px-4;
+  @apply text-gray-700; }
+
+input:hover, textarea:hover {
+  @apply border border-gray-700;}
+input:focus, textarea:focus {
+  @apply border;}
+input:active, textarea:active {
+  @apply border;}
+input:disabled, .input.disabled{
+  @apply cursor-not-allowed; }
+
+
+input[type=checkbox], input[type=radio] {
+  @apply inline-block align-middle cursor-pointer rounded;
+  @apply text-gray-700;
+
+  width: 18pt;
+  height: 18pt;} 
+
+input[type=search], input[type=submit] {
+  @apply py-2 px-4 mt-4 block w-full cursor-pointer;
+  @apply s2 text-white bg-gray-700;
+}
+
+input[type=search]:hover, input[type=submit]:hover {
+  @apply border bg-gray-900;
+}
+
+select {
+  @apply py-2 px-4 rounded border tracking-wider border-gray-300;
+  @apply w-full s2 text-gray-700 ;
+}
+
+select:hover {
+  @apply border-gray-700;
+}
+
+  /* 解決表單自動填入： */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active
+  {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(192,192,192,0.2) inset; /*淡淡的白*/
+  transition: background-color 5000s ease-in-out 0s; /*透明*/
+  -webkit-text-fill-color: #000; /*字體顏色*/
+  }
+
+
+  /* -- user field */
+  .ufield {
+  @apply s2 flex-wrap block w-full justify-start py-4 align-middle ;
+  @apply text-gray-700;
+}
+
+.ufield textarea, .ufield input[type=text] {
+  @apply outline-none block w-full rounded border-b border-gray-200 align-middle py-2 px-4 ; }
+
+.ufield input[type=text]:hover, .ufield textarea:hover, .ufield input[type=text]:focus, .ufield textarea:focus {
+  @apply border-b border-gray-500 ;}

@@ -1,0 +1,128 @@
+import axios from 'axios';
+
+const state = {
+    citem: [],
+    // counterQuantity: 1,
+}
+
+const mutations = {
+    citemSet(state, payload) {
+        var pl = JSON.parse(payload)
+        if (pl != null && Array.isArray(pl)) {
+            state.citem = []
+            // console.log('citemSet ...state.citem=[] :' + state.citem)
+            // console.log('citemSet ...payload :' + payload)
+            pl.forEach((p) => {
+                var pitem = {
+                    "id": p.id, 
+                    "title": p.title, 
+                    "spec": p.spec,
+                    "measure": p.measure,
+                    "quantity": p.quantity,
+                    "pinventory": p.pinventory,
+                    "pprice": p.pprice, 
+                    "ptotal_price": p.pprice * p.quantity ,
+                    "img": p.img,
+                    "aurl": "/product/" + p.id,
+                }
+                // console.log("citemSet pitem:" + pitem.quantity)
+                state.citem.push(pitem)
+                // console.log("citemSet:" + state.citem)
+        })}
+        
+    },
+    // renderKeyToggle(state, payload) {
+    //     if (payload != 'toggle') {
+    //         state.renderKey = payload
+    //     } else {
+    //         state.renderKey = !state.renderKey
+    //     }
+    // },
+    // counterQuantityChange(state, payload) {   
+    //    state.counterQuantity = payload
+    // },
+    // citemQuantityChange(state, payload) {   
+    //     const index = state.citem.findIndex( p => p.id == payload.id && p.spec == payload.spec && p.measure == payload.measure)
+    //         console.log("citemQuantityChange index: " + index + " payload.id:" + payload.id + " payload.quantity: " + payload.quantity + " payload.spec:" + payload.spec + " payload.measure:" + payload.measure)
+    //     if (payload.quantity > 0 && index > -1) {
+            
+    //         state.citem[index].quantity = payload.quantity
+    //         console.log("citemQuantityChange state.citem[index].quantity " + state.citem[index].quantity )
+    //         state.citem[index].ptotal_price = state.citem[index].pprice * payload.quantity
+    //         state.citem[index].inventory = state.citem[index].inventory - payload.quantity
+    //     }
+    // },
+    citemDel(state, payload){
+        const index = state.citem.findIndex( p => p.id == payload.id && p.measure == payload.measure && p.spec==payload.spec)
+        state.citem.splice(index, 1)
+    },
+}
+
+const actions = {
+    citemSet({ commit }, payload) { commit('citemSet', payload) },
+    // renderKeyToggle({ dispatch, commit }, payload) { commit('renderKeyToggle', payload) },
+
+    // counterQuantityChange({ dispatch, commit, state }, payload) { commit('counterQuantityChange', payload) },
+    // citemQuantityChange({ dispatch, commit, state }, payload) { commit('citemQuantityChange', payload) },
+    
+    citemDel({ dispatch, commit, state }, payload) { commit('citemDel', payload) },
+    citemAdd({ commit, state }, payload) { commit('citemAdd', payload) }, 
+
+    async citemReset({ dispatch, commit }) { 
+        const res = await axios.get('/cart/getcitem')
+        // console.log("citemReset--res: " + res)
+        commit('citemSet', res)  
+    },
+  
+}
+
+const getters = {
+    cartTotalPrice(state) {
+        if (state.citem.length==0) { return 0 }
+        if (state.citem.length!=0) {
+            return state.citem.reduce((total_price, p) => {
+                return total_price + (p.pprice * p.quantity)
+            }, 0)
+        }
+    },
+    cartCount(state) {
+        if (!state.citem.length ) { return 0 }
+        else {
+            console.log("cartCount " + state.citem)
+            return state.citem.reduce((csum, p) => {
+                return csum + p.quantity
+            }, 0)
+        }
+    },
+    
+    // maxquaById: (state) => (id) => {
+    //     const index = state.citem.findIndex(p => p.id == id)
+    //     const idx = state.product.findIndex(p => p.id == id)
+    //     console.log('quamaxById: ID ' + id + '   index:' + index + '  idx:' + idx)
+    //     if (index < 0 && idx < 0 ){
+    //         return 0 }
+    //     else if (index >= 0) {
+    //         //console.log('quamaxById: state.citem ' + (state.citem[index].maxqua > state.citem[index].inventory) ? state.citem[index].inventory : state.citem[index].maxqua)
+    //         return (state.citem[index].inventory < state.citem[index].maxqua ) ? state.citem[index].inventory : state.citem[index].maxqua
+    //     } else if (idx >= 0) {
+    //         //console.log('quamaxById: state.product ' + (state.product[idx].maxqua > state.product[idx].inventory) ? state.product[idx].inventory : state.product[idx].maxqua)
+    //         return (state.product[idx].inventory < state.product[idx].maxqua ) ? state.product[idx].inventory : state.product[idx].maxqua
+    //     }
+    // },
+    // inventoryById: (state) => (id) => {
+    //     const index = state.citem.findIndex(p => p.id == id)
+    //     if (index >= 0) {
+    //         return state.citem[index].inventory
+    //     } else {
+    //         return 0
+    //     }
+    // }
+}
+
+export default {
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations,
+}
