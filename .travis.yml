@@ -1,0 +1,6 @@
+before_install:
+  - export TZ=Asia/Taipei
+
+script:
+  - xvfb
+  - rspec spec/fatures
