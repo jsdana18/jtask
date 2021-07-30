@@ -57,6 +57,7 @@ $ yarn tailwind init app/javascript/css/tailwind.js
 # 安裝測試 gem，會建立 rspec 目錄。用 rspec代替內建的測試，故 test 目錄可以刪除
 $ rails g rspec:install
 # 刪除整個 test 資料夾
+# 執行測試用指令：$ rspect spec/features
 
 $ rails g kaminari:config #分頁的 gem，rails admin 需使用這個
 

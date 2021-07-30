@@ -66,13 +66,12 @@ end
 
 gem 'autoprefixer-rails' #parse css 功能
 gem 'nokogiri' #gem 'nokogiri' #HTML, XML, SAX 的 parser，他可以藉由 XPath or CSS3 selectors 來尋找 XML/HTML 中的 tag
-
 gem 'uglifier', '~> 2.6.1' #修正 asset precompile 問題
 gem 'mini_racer', '~> 0.3.1' #修正 asset precompile 問題
 
 gem 'kaminari', '~> 1.2'  #分頁功能 rails_admin 需使用
 
-# gem 'ransack' # 查詢搜尋
+gem 'ransack' # 查詢搜尋
 gem 'aasm', '~> 4.11' #狀態機
 
 # 多國語系
