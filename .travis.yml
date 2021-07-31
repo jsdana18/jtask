@@ -9,7 +9,7 @@ install:
 services:
   - postgresql
 script:
-  - xvfb
   - bundle exec rake db:migrate:reset RAILS_ENV=test
   - bundle exec rspec
+  - xvfb
   - bundle exec rspec spec/features
