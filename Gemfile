@@ -71,10 +71,6 @@ gem 'mini_racer', '~> 0.3.1' #修正 asset precompile 問題
 
 gem 'kaminari', '~> 1.2'  #分頁功能 rails_admin 需使用
 
-<<<<<<< HEAD
-=======
-gem 'travis', '~> 1.8', '>= 1.8.2' #push到github後自動執行
->>>>>>> a612a7ae877f7cff136636e4cdf13db8c0878c48
 gem 'ransack' # 查詢搜尋
 gem 'aasm', '~> 4.11' #狀態機
 
