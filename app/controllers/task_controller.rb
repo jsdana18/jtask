@@ -5,7 +5,12 @@ class TaskController < ApplicationController
 #  before_action :authenticate_admin!, except:[:index, :show]
  
   def index
-    @tasks = Task.all.page params[:page]
+    @tasks = Task.all.order(id: :asc).page params[:page]
+  end
+
+  def odate
+    @tasks = Task.order(created_at: :desc).page params[:page]
+    render :index
   end
 
 #   def indexa
