@@ -6,13 +6,13 @@
 
 <div class="my-4 px-4 mb-8"><%= @task.content %></div>
 
-<div class="my-4 px-4">狀態：<%= @task.aasm_state %></div>
+<div class="my-4 px-4"><%= t("helper.aasm_state") %><%= @task.aasm_state %></div>
 
-<div class="my-4 px-4">優先順序：<%= @task.priority %></div>
+<div class="my-4 px-4"><%= t("helper.priority") %><%= @task.priority %></div>
 
-<div class="my-4 px-4 mb-8">工作結束日期：<%= @task.end_date %></div>
+<div class="my-4 px-4 mb-8"><%= t("helper.end_date") %><%= @task.end_date %></div>
 
-<div class="my-4 px-4 s1 text-right">建立日期：<%= @task.created_at.strftime("%Y 年 %m 月 %d 日") %></div>
+<div class="my-4 px-4 s1 text-right"><%= t("created_at") %><%= @task.created_at.strftime(" %Y 年 %m 月 %d 日") %></div>
 
 </div>
 

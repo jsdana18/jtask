@@ -1,5 +1,21 @@
 en:
+  data_deleted: "Data deleted."
+  data_nil: "No data."
+
+  add: "add new "
+  edit: "edit "
+  delete: "delete "
+
+  created_at: "created date"
+
   task_update_ok: "Task update ok."
   task_update_fail: "Task update error."
   task_add_ok: "Task add ok."
   task_add_fail: "Task add fail."
+
+  helper:
+    task: "task"
+    content: "content"
+    aasm_state: "state"
+    priority: "priority"
+    end_date: "end date"

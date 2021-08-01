@@ -1,7 +1,21 @@
 zh-TW:
   data_deleted: "資料已刪除。"
-  
+  data_nil: "無任何資料。"
+
+  add: "新增"
+  edit: "編輯"
+  delete: "刪除"
+
+  created_at: "建立日期"
+
   task_update_ok: "工作更新成功。"
   task_update_fail: "工作更新失敗。"
   task_add_ok: "工作新增成功。"
   task_add_fail: "工作新增失敗。"
+
+  helper:
+    task: "工作"
+    content: "內容"
+    aasm_state: "狀態"
+    priority: "優先順序"
+    end_date: "工作結束日期"

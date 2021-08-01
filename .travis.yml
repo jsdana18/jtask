@@ -6,6 +6,7 @@ install:
   - nvm install 10
   - npm i -g yarn
   - yarn
+dist: xenail
 addons:
   chrome: stable
 services:

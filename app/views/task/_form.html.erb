@@ -3,12 +3,12 @@
 <%= form_with model: obj, url: spath, local: true do |f| %>
 
     <div class="myfield">
-        <%= f.label "#{act} 工作" %>
+        <%= f.label "#{act} #{t("helper.task")}" %>
         <%= f.text_field :name %>
     </div>
 
      <div class="myfield">
-        <%= f.label "#{act} 內容" %>
+        <%= f.label "#{act} #{t("helper.content")}" %>
         <%= f.text_area :content, rows: 3 %>
     </div>
 
