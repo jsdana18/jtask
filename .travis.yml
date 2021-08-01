@@ -1,14 +1,13 @@
 language: ruby
 rvm:
   - 2.6.5
-dist: trusty
-addons:
-  chrome: stable
 install:
   - bundle install
   - nvm install 10
   - npm i -g yarn
   - yarn
+addons:
+  chrome: stable
 services:
   - postgresql
 script:
