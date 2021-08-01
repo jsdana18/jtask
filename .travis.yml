@@ -1,6 +1,8 @@
 language: ruby
 rvm:
-- 2.6.5
+  - 2.6.5
+addons:
+  chrome: stable
 install:
   - bundle install
   - nvm install 10
