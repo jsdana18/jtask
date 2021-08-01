@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+# for number_to_human
+  number:
+    human:
+      decimal_units:
+       format: "%n %u"
+       units:
+         unit: ""
+         thousand: k
+         million: M
+         billion: B
+         trillion: T
+         quadrillion: Q
+      format:
+        delimiter: ','
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false

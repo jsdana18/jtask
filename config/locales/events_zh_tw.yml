@@ -1,0 +1,7 @@
+zh-TW:
+  data_deleted: "資料已刪除。"
+  
+  task_update_ok: "工作更新成功。"
+  task_update_fail: "工作更新失敗。"
+  task_add_ok: "工作新增成功。"
+  task_add_fail: "工作新增失敗。"

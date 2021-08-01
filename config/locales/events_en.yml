@@ -1,0 +1,5 @@
+en:
+  task_update_ok: "Task update ok."
+  task_update_fail: "Task update error."
+  task_add_ok: "Task add ok."
+  task_add_fail: "Task add fail."

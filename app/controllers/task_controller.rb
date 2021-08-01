@@ -20,9 +20,9 @@ class TaskController < ApplicationController
     # @task = current_user.Task.build(this_params)
     @task = Task.new(this_params)
     if @task.save
-      redirect_to task_index_path, notice: "新增工作成功！"
+      redirect_to task_index_path, notice: I18n.t(:task_add_ok) 
     else
-      flash.now[:error] = "新增工作失敗。"
+      flash.now[:error] = I18n.t(:task_add_fail) 
       render :new
     end
   end
@@ -32,9 +32,9 @@ class TaskController < ApplicationController
 
   def update
     if @task.update(this_params)  
-      redirect_to task_index_path, notice: "工作更新成功！"
+      redirect_to task_index_path, notice: I18n.t(:task_update_ok) 
     else
-      flash.now[:error] = "工作更新失敗。"
+      flash.now[:error] = I18n.t(:task_update_fail) 
       render :edit
     end
   end
@@ -46,27 +46,27 @@ class TaskController < ApplicationController
   def destroy
     if @task
       @task.destroy 
-      redirect_to task_index_path, notice: "資料已刪除！"
+      redirect_to task_index_path, notice: I18n.t(:data_deleted) 
     #   flashsuc = "#{@Task.id} 資料已刪除！"
     #   respond_js(flashsuc, @task, flasherr) #呼叫 application_controller的 respond_to
     end
   end
 
-  def toggled
-      #closed = @Task.closed 
-      if @Task.toggle(:closed).save
-          flashsuc= "#{@Task.id} 值：#{@Task.closed}，已#{@Task.onoff} "
-      end
-      respond_js(flashsuc, @task, flasherr) #呼叫 application_controller的 respond_to
-  end
+  # def toggled
+  #     #closed = @Task.closed 
+  #     if @Task.toggle(:closed).save
+  #         flashsuc= "#{@Task.id} 值：#{@Task.opened}，已#{@Task.onoff} "
+  #     end
+  #     respond_js(flashsuc, @task, flasherr) #呼叫 application_controller的 respond_to
+  # end
 
-  def selids
-    meth = params[:meth]
-    ids = params[:ids]
-    @tasks = Task.where(id: ids)
-    flashsuc  = selid_info(meth, ids, @tasks) 
-    respond_js(flashsuc, @tasks, flasherr) #呼叫 application_controller的 respond_to
-  end
+  # def selids
+  #   meth = params[:meth]
+  #   ids = params[:ids]
+  #   @tasks = Task.where(id: ids)
+  #   flashsuc  = selid_info(meth, ids, @tasks) 
+  #   respond_js(flashsuc, @tasks, flasherr) #呼叫 application_controller的 respond_to
+  # end
 
 
 private
