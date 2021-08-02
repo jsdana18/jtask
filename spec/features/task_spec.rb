@@ -12,7 +12,8 @@ RSpec.feature 'test', type: :feature, driver: :chrome, js: true, slow: true do
     #   click_on('新增工作')
       fill_in('task[name]', with: '吃東西')
       fill_in('task[content]', with: '吃餅乾')
-      click_button('新增工作')
+      click_button('新增')
+      expect(page).to have_content '工作新增成功。'
       expect(Task.count).to eq(1)
       visit task_index_path
       click_on('刪除')
@@ -24,15 +25,39 @@ RSpec.feature 'test', type: :feature, driver: :chrome, js: true, slow: true do
       expect(Task.count).to eq(0)
       fill_in('task[name]', with: '追劇')
       fill_in('task[content]', with: '第 69 集')
-      click_button('新增工作')
+      click_button('新增')
+      expect(page).to have_content '工作新增成功。'
       expect(Task.count).to eq(1)
+
       visit task_index_path
       click_on('編輯')
-      fill_in('task[name]', with: '追劇')
+      fill_in('task[name]', with: '追韓劇')
       fill_in('task[content]', with: '第 70 集')
-      click_button('修改工作')
-      # expect(Task.count).to eq(1)
-      expect(Task.first.content).to eq("第 70 集")
+      click_button('編輯')
+      expect(page).to have_content '工作更新成功。'
+      expect(Task.first.name).to eq("追韓劇")
+    end
+
+    scenario 'Tasks 新增工作並排序' do
+      visit new_task_path
+      expect(Task.count).to eq(0)
+      fill_in('task[name]', with: '追劇')
+      fill_in('task[content]', with: '第 22 集')
+      click_button('新增')
+      expect(page).to have_content '工作新增成功。'
+
+      visit new_task_path
+      fill_in('task[name]', with: '吃午餐')
+      fill_in('task[content]', with: '便當')
+      click_button('新增')
+      expect(page).to have_content '工作新增成功。'
+      expect(Task.count).to eq(2)
+
+      click_on('最新日期排前')
+      expect(page).to have_content("/吃午餐.*追劇/m")
+      click_on('用ID排前')
+      expect(page).to have_content("/追劇.*吃午餐/m")
+      # expect(page).to have_content 'Success'
     end
 
   end
