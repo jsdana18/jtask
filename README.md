@@ -16,3 +16,5 @@ Things you may want to cover:
 * rails g model tag name
 
 * rails g model tag_task task:belongs_to tag:belongs_to
+
+* 佈署至 heroku 
