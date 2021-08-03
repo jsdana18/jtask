@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
+    rescue_from RubySpark::Device::ApiErro, with: :inter_error
 
     protect_from_forgery with: :exception
 
@@ -15,6 +16,12 @@ class ApplicationController < ActionController::Base
     def not_found
         render file: 'public/404.html',
             status: 404,
+            layout: false
+    end
+
+    def inter_error
+        render file: 'public/500.html',
+            status: 500,
             layout: false
     end
 
