@@ -7,9 +7,14 @@
         <%= f.text_field :name %>
     </div>
 
-     <div class="myfield">
+    <div class="myfield">
         <%= f.label "#{act} #{t("helper.content")}" %>
         <%= f.text_area :content, rows: 3 %>
+    </div>
+
+    <div class="myfield">
+        <%= f.label "#{act} #{t("helper.end_date")}" %>
+        <%= date_field :task, :end_date , value: (Time.zone.now + 1.day).to_date %>
     </div>
 
 

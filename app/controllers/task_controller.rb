@@ -13,6 +13,11 @@ class TaskController < ApplicationController
     render :index
   end
 
+  def edate
+    @tasks = Task.order(end_date: :desc).page params[:page]
+    render :index
+  end
+
 #   def indexa
 #     @tasks = Task.all.page params[:page]
 #   end

@@ -1,18 +1,20 @@
-<section class="py-8 px-8 mr-auto ml-auto max-w-4xl">
+<section class="py-8 mr-auto ml-auto max-w-5xl">
 
-<div class="max-w-2xl border grid rounded text-gray-700 s2">
+<div class="max-w-2xl rounded-lg grid grid-cols-3 bg-yellow-150 py-2 px-4 rounded text-gray-700 s2">
 
-<div class="my-4 px-4 s5 text-purpled-600"><%= @task.name %></div>
+    <div class="col-span-2 my-4 px-4 s6 text-blued-700"><%= @task.name %></div>
 
-<div class="my-4 px-4 mb-8"><%= @task.content %></div>
+    <div class="my-4 px-4"><%= t("helper.priority") %><%= @task.priority %></div>
 
-<div class="my-4 px-4"><%= t("helper.aasm_state") %><%= @task.aasm_state %></div>
+    <div class="col-span-2 my-4 px-4 mb-8 text-blued-700"><%= @task.content %></div>
 
-<div class="my-4 px-4"><%= t("helper.priority") %><%= @task.priority %></div>
+    <div class="my-4 px-4"><%= t("helper.aasm_state") %><%= @task.aasm_state %></div>
 
-<div class="my-4 px-4 mb-8"><%= t("helper.end_date") %><%= @task.end_date %></div>
+    
 
-<div class="my-4 px-4 s1 text-right"><%= t("created_at") %><%= @task.created_at.strftime(" %Y 年 %m 月 %d 日") %></div>
+    <div class="col-span-3 my-4 px-4 mb-8"><%= t("helper.end_date") %> <%= @task.end_date.strftime("%Y-%m-%d") %></div>
+
+    <div class="col-span-3 my-4 px-4 s1 text-right"><%= t("created_at") %><%= @task.created_at.strftime(" %Y 年 %m 月 %d 日") %></div>
 
 </div>
 

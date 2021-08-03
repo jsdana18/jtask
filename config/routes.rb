@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :task do
     collection do
       get :odate
+      get :edate
     end
   end
 
