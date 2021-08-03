@@ -8,6 +8,10 @@ zh-TW:
 
   created_at: "建立日期"
 
+  order_by_id: "依 ID 排前"
+  order_by_date: "依最新日期排前"
+  order_by_end_date: "依結束日期排前"
+
   task_update_ok: "工作更新成功。"
   task_update_fail: "工作更新失敗。"
   task_add_ok: "工作新增成功。"

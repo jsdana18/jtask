@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
-    rescue_from RubySpark::Device::ApiErro, with: :inter_error
+    rescue_from StandardError, with: :inter_error
 
     protect_from_forgery with: :exception
 

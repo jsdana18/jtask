@@ -8,6 +8,10 @@ en:
 
   created_at: "created date"
 
+  order_by_id: "ordered by id"
+  order_by_date: "ordered by date"
+  order_by_end_date: "ordered by end date"
+
   task_update_ok: "Task update ok."
   task_update_fail: "Task update error."
   task_add_ok: "Task add ok."
