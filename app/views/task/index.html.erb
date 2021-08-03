@@ -1,6 +1,6 @@
 <section class="py-8 px-8 mr-auto ml-auto">
 
-<%= paginate @tasks %>
+
 
 <div class="max-w-5xl ml-auto mr-auto">
 
@@ -16,6 +16,8 @@
                 <a href="<%= odate_task_index_path %>" class="py-2 px-3 border text-blued-500 border-blued-500 rounded hover:bg-blued-500 hover:text-white"><%= t("order_by_date") %></a>
                 <a href="<%= edate_task_index_path %>" class="py-2 px-3 border text-blued-500 border-blued-500 rounded hover:bg-blued-500 hover:text-white"><%= t("order_by_end_date") %></a>
             </div>
+
+            <%= paginate @tasks %>
 
             <div class="w-full">
 
@@ -35,6 +37,8 @@
 
                 <% end %>
             </div>
+
+            <%= paginate @tasks %>
             
         </div>
     </div>
@@ -44,6 +48,6 @@
 </div>
 
 
-<%= paginate @tasks %>
+
 
 </section>
