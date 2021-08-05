@@ -6,6 +6,7 @@ class TaskController < ApplicationController
  
   def index
     @tasks = Task.all.order(id: :asc).page params[:page]
+    
   end
 
   def odate
@@ -41,8 +42,9 @@ class TaskController < ApplicationController
   end
 
   def update
+    # this_params['aasm_state'] = params['aasm_state']
     if @task.update(this_params)  
-      redirect_to task_index_path, notice: I18n.t(:task_update_ok) 
+      redirect_to task_index_path, notice: " #{this_params} #{I18n.t(:task_update_ok)}" 
     else
       flash.now[:error] = I18n.t(:task_update_fail) 
       render :edit
@@ -82,7 +84,7 @@ class TaskController < ApplicationController
 private
 
 def this_params
-  params.require(:task).permit(:name, :content, :aasm_state, :priority, :end_date, :page)
+  params.require(:task).permit(:name, :content, :state, :priority, :end_date, :page)
 end
 
 def this_id

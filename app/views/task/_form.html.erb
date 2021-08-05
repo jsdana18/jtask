@@ -17,6 +17,11 @@
         <%= date_field :task, :end_date , value: (Time.zone.now + 1.day).to_date %>
     </div>
 
+    <div class="myfield">
+        <%= f.label "#{act} #{t("helper.aasm_state")}" %>
+        <%= select_tag "task[state]" , options_for_select([['待處理', "wait"], ['進行中', "go"], ['結束', "done"]], obj.state || "wait" ) %>
+    </div>
+    
 
     <div class="myfield">
         <%= f.submit act %>

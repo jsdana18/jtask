@@ -17,6 +17,14 @@ zh-TW:
   task_add_ok: "工作新增成功。"
   task_add_fail: "工作新增失敗。"
 
+  low: "高"
+  medium: "中"
+  high: "低"
+  
+  wait: "待處理"
+  go: "進行中"
+  done: "結束"
+
   helper:
     task: "工作"
     content: "內容"

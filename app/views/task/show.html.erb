@@ -4,11 +4,11 @@
 
     <div class="col-span-2 my-4 px-4 s6 text-blued-700"><%= @task.name %></div>
 
-    <div class="my-4 px-4"><%= t("helper.priority") %><%= @task.priority %></div>
+    <div class="my-4 px-4"><%= t("helper.priority") %> <%= t(@task.priority) %></div>
 
-    <div class="col-span-2 my-4 px-4 mb-8 text-blued-700"><%= @task.content %></div>
+    <div class="col-span-2 my-4 px-4 mb-8 text-blued-700"> <%= @task.content %></div>
 
-    <div class="my-4 px-4"><%= t("helper.aasm_state") %><%= @task.aasm_state %></div>
+    <div class="my-4 px-4"><%= t("helper.aasm_state") %> <%= t(@task.state) %></div>
 
     
 

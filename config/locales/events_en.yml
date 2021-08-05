@@ -17,6 +17,14 @@ en:
   task_add_ok: "Task add ok."
   task_add_fail: "Task add fail."
 
+  low: "low"
+  medium: "medium"
+  high: "high"
+  
+  wait: "wait"
+  go: "in progress"
+  done: "done"
+
   helper:
     task: "task"
     content: "content"

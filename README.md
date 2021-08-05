@@ -11,10 +11,16 @@ Things you may want to cover:
 
 * rails g model user name email password_digest session_token isadmin:boolean
 
-* rails g model task name content aasm_state priority user:belongs_to end_date:datetime
+* rails g model task name content state:integer priority:integer user:belongs_to end_date:datetime
 
 * rails g model tag name
 
 * rails g model tag_task task:belongs_to tag:belongs_to
 
 * 佈署至 heroku 
+
+Install:
+run bundle install.
+
+Migrations:
+rake db:migrate
