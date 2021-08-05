@@ -44,7 +44,7 @@ class TaskController < ApplicationController
   def update
     # this_params['aasm_state'] = params['aasm_state']
     if @task.update(this_params)  
-      redirect_to task_index_path, notice: " #{this_params} #{I18n.t(:task_update_ok)}" 
+      redirect_to task_index_path, notice: I18n.t(:task_update_ok) 
     else
       flash.now[:error] = I18n.t(:task_update_fail) 
       render :edit
