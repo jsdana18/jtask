@@ -25,6 +25,8 @@ zh-TW:
   go: "進行中"
   done: "結束"
 
+  search: "搜尋"
+
   helper:
     task: "工作"
     content: "內容"

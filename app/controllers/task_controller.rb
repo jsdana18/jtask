@@ -6,7 +6,6 @@ class TaskController < ApplicationController
  
   def index
     @tasks = Task.all.order(id: :asc).page params[:page]
-    
   end
 
   def odate
@@ -16,6 +15,11 @@ class TaskController < ApplicationController
 
   def edate
     @tasks = Task.order(end_date: :desc).page params[:page]
+    render :index
+  end
+
+  def q
+    @tasks = Task.where("name like ?", "%#{this_params[:q]}%").page params[:page]
     render :index
   end
 
@@ -84,7 +88,7 @@ class TaskController < ApplicationController
 private
 
 def this_params
-  params.require(:task).permit(:name, :content, :state, :priority, :end_date, :page)
+  params.require(:task).permit(:name, :content, :state, :priority, :end_date, :q, :page)
 end
 
 def this_id

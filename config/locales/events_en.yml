@@ -25,6 +25,8 @@ en:
   go: "in progress"
   done: "done"
 
+  search: "search"
+
   helper:
     task: "task"
     content: "content"
