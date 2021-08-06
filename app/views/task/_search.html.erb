@@ -2,9 +2,9 @@
 <div class="mb-12">
 <%= form_with model: Task, url: q_task_index_path, local: true do |f| %>
 
-    <div class="myfield">
-        <%= search_field :task, :q %>
-        <%= f.submit t("search"), class: "max-w-xl" %>
+    <div class="flex">
+        <%= search_field :task, :q , class: "flex-grow" %>
+        <%= f.submit t("search"), class: "flex-1 w-32" %>
     </div>
 
 <% end %>

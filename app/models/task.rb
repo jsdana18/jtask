@@ -9,6 +9,8 @@ class Task < ApplicationRecord
     enum state: [:wait, :go, :done]
     enum priority: [:low, :medium, :high]
 
+    scope :q, -> (q) { where(["name like ?", "%#{q}%"]) }
+
 
     # def state_msg
     #     msg_list.select { |k| k[:state]==state}[0][:msg]

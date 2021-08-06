@@ -19,7 +19,7 @@ class TaskController < ApplicationController
   end
 
   def q
-    @tasks = Task.where("name like ?", "%#{this_params[:q]}%").page params[:page]
+    @tasks = Task.q(this_params[:q]).page params[:page]
     render :index
   end
 

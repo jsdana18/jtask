@@ -64,7 +64,7 @@ input[type=checkbox], input[type=radio] {
   height: 18pt;} 
 
 input[type=submit] {
-  @apply py-2 px-4 mt-4 block cursor-pointer;
+  @apply py-2 px-4 mt-4 cursor-pointer;
   @apply s2 text-white bg-gray-700;
 }
 
@@ -73,7 +73,7 @@ input[type=submit]:hover {
 }
 
 input[type=search] {
-  @apply py-2 px-4 mt-4 block max-w-4xl cursor-pointer;
+  @apply py-2 px-4 mt-4 cursor-pointer;
   @apply s2 text-gray-700 bg-white;
 }
 
