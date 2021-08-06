@@ -26,6 +26,7 @@ en:
   done: "done"
 
   search: "search"
+  search_task: "search tasks"
 
   helper:
     task: "task"

@@ -19,7 +19,8 @@ class TaskController < ApplicationController
   end
 
   def q
-    @tasks = Task.q(this_params[:q]).page params[:page]
+    # @tasks = Task.q(this_params[:q]).page params[:page]
+    @tasks = Task.ransack(name_cont: params[:q]).result.page params[:page]
     render :index
   end
 

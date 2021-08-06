@@ -26,6 +26,7 @@ zh-TW:
   done: "結束"
 
   search: "搜尋"
+  search_task: "搜尋工作"
 
   helper:
     task: "工作"
