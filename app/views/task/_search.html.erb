@@ -1,6 +1,6 @@
 
 <div class="mr-auto ml-auto mb-12 max-w-4xl">
-<%= form_with url: q_task_index_path, local: true do |f| %>
+<%= form_with url: q_task_index_path, local: true, method: :get do |f| %>
 
     <div class="flex max-w-4xl">
         <%= search_field_tag :q %>

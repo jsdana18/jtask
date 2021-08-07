@@ -69,7 +69,7 @@ gem 'nokogiri' #gem 'nokogiri' #HTML, XML, SAX 的 parser，他可以藉由 XPat
 gem 'uglifier', '~> 2.6.1' #修正 asset precompile 問題
 gem 'mini_racer', '~> 0.3.1' #修正 asset precompile 問題
 
-gem 'kaminari', '~> 1.2'  #分頁功能 rails_admin 需使用
+gem 'kaminari', '~> 1.2', '>= 1.2.1'  #分頁功能 rails_admin 需使用
 
 gem 'ransack' #查詢搜尋
 gem 'aasm', '~> 4.11' #狀態機

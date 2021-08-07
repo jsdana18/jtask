@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :odate
       get :edate
-      post :q
+      get :q
     end
   end
 

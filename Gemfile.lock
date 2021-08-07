@@ -281,7 +281,7 @@ DEPENDENCIES
   hirb-unicode
   i18n (~> 1.8, >= 1.8.2)
   jbuilder (~> 2.7)
-  kaminari (~> 1.2)
+  kaminari (~> 1.2, >= 1.2.1)
   launchy
   listen (~> 3.2)
   mini_racer (~> 0.3.1)
