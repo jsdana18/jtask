@@ -8,15 +8,21 @@ class TaskController < ApplicationController
     @tasks = Task.all.order(id: :asc).page params[:page]
   end
 
-  def odate
+  def orderc
     @tasks = Task.order(created_at: :desc).page params[:page]
     render :index
   end
 
-  def edate
+  def ordere
     @tasks = Task.order(end_date: :desc).page params[:page]
     render :index
   end
+
+  def orderp
+    @tasks = Task.order(prirority: :desc).page params[:page]
+    render :index
+  end
+
 
   def q
     # @tasks = Task.q(this_params[:q]).page params[:page]
