@@ -82,8 +82,8 @@ input[type=search]:hover {
 }
 
 select {
-  @apply px-4 rounded border tracking-wider border-gray-300;
-  @apply w-full s2 text-gray-700 ;
+  @apply outline-none py-2 rounded border tracking-wider border-gray-300;
+  @apply s2 text-gray-700 ;
 }
 
 select:hover {

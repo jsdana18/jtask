@@ -2,10 +2,10 @@
 <div class="mr-auto ml-auto mb-12 max-w-4xl">
 <%= form_with url: q_task_index_path, local: true, method: :get do |f| %>
 
-    <div class="flex max-w-4xl h-16">
+    <div class="flex max-w-4xl items-stretch">
         <%= search_field_tag :q %>
-        <%= select_tag "state" , options_for_select([[t('wait'), "wait"], [t('go'), "go"], [t('done'), "done"]],  "wait" ), class: "w-48" %>
-        <%= f.submit t("search_task"), class: "flex-1 w-48" %>
+        <%= select_tag "state" , options_for_select([[t('wait'), "wait"], [t('go'), "go"], [t('done'), "done"]],  "wait" ), class: "w-48 h-13 mt-4" %>
+        <%= f.submit t("search_task"), class: "w-48" %>
     </div>
 
 <% end %>
