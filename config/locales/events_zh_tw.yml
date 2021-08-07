@@ -11,6 +11,7 @@ zh-TW:
   order_by_id: "依 ID 排前"
   order_by_date: "依最新日期排前"
   order_by_end_date: "依結束日期排前"
+  order_by_priority: "依優先權高排前"
 
   task_update_ok: "工作更新成功。"
   task_update_fail: "工作更新失敗。"
@@ -31,6 +32,6 @@ zh-TW:
   helper:
     task: "工作"
     content: "內容"
-    aasm_state: "狀態"
+    state: "狀態"
     priority: "優先順序"
     end_date: "工作結束日期"

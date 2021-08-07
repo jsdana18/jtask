@@ -11,6 +11,7 @@ en:
   order_by_id: "ordered by id"
   order_by_date: "ordered by date"
   order_by_end_date: "ordered by end date"
+  order_by_priority: "ordered by high priority"
 
   task_update_ok: "Task update ok."
   task_update_fail: "Task update error."
@@ -31,6 +32,6 @@ en:
   helper:
     task: "task"
     content: "content"
-    aasm_state: "state"
+    state: "state"
     priority: "priority"
     end_date: "end date"

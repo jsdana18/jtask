@@ -18,8 +18,13 @@
     </div>
 
     <div class="myfield">
-        <%= f.label "#{act} #{t("helper.aasm_state")}" %>
-        <%= select_tag "task[state]" , options_for_select([['待處理', "wait"], ['進行中', "go"], ['結束', "done"]], obj.state || "wait" ) %>
+        <%= f.label "#{act} #{t("helper.state")}" %>
+        <%= select_tag "task[state]" , options_for_select([[t('wait'), "wait"], [t('go'), "go"], [t('done'), "done"]], obj.state || "wait" ) %>
+    </div>
+
+    <div class="myfield">
+        <%= f.label "#{act} #{t("helper.priority")}" %>
+        <%= select_tag "task[priority]" , options_for_select([[t('low'), "low"], [t('medium'), "medium"], [t('high'), "high"]], obj.priority || "low" ) %>
     </div>
     
 
