@@ -4,7 +4,7 @@
 
     <div class="flex max-w-4xl items-stretch">
         <%= search_field_tag :q %>
-        <%= select_tag "state" , options_for_select([[t('wait'), "wait"], [t('go'), "go"], [t('done'), "done"]],  "wait" ), class: "w-48 h-13 mt-4" %>
+        <%= select_tag "state" , options_for_select([[t('wait'), 0], [t('go'), 1], [t('done'), 2]],  0 ), class: "w-48 h-13 mt-4" %>
         <%= f.submit t("search_task"), class: "w-48" %>
     </div>
 
