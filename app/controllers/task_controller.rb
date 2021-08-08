@@ -19,7 +19,7 @@ class TaskController < ApplicationController
   end
 
   def orderp
-    @tasks = Task.order(prirority: :desc).page params[:page]
+    @tasks = Task.order(prirority: :asc).page params[:page]
     render :index
   end
 

@@ -27,7 +27,7 @@ RSpec.feature 'test', type: :feature, driver: :chrome, js: true, slow: true do
       visit new_task_path
       fill_in('task[name]', with: '吃午餐')
       fill_in('task[content]', with: '深夜食堂')
-      fill_in('task[end_date]', with: (Time.zone.now+6.days).to_date)
+      fill_in('task[end_date]', with: (Time.zone.now+3.days).to_date)
       select("進行中", from: 'task[state]')
       select("高", from: 'task[priority]')
       click_button('新增')
@@ -37,7 +37,7 @@ RSpec.feature 'test', type: :feature, driver: :chrome, js: true, slow: true do
       visit new_task_path
       fill_in('task[name]', with: '追美劇')
       fill_in('task[content]', with: '紙牌第 7 集')
-      fill_in('task[end_date]', with: (Time.zone.now+1.days).to_date)
+      fill_in('task[end_date]', with: (Time.zone.now+7.days).to_date)
       select("待處理", from: 'task[state]')
       select("中", from: 'task[priority]')
       click_button('新增')
@@ -66,12 +66,14 @@ RSpec.feature 'test', type: :feature, driver: :chrome, js: true, slow: true do
 
     scenario 'Tasks 新增工作並排序' do
       click_on('最新日期排前')
-      expect(page).to match /吃午餐.+追日劇.+追韓劇/
+      expect(page.body).to match /追美劇.+吃午餐.+追韓劇/m
       click_on('依 ID 排前')
-      expect(page).to match /追日劇.*追韓劇.*吃午餐/m
+      expect(page.body).to match /追日劇.*追韓劇.*吃午餐/m
+      click_on('依結束日期排前')
+      expect(page.body).to match /追美劇.*追日劇.*吃午餐/m
       click_on('依優先權高排前')
-      expect(page).to match /吃午餐.*追韓劇.*追美劇/m
-      # expect(page).to have_content 'Success'
+      # expect(page.body).to match /吃午餐.*追韓劇.*追美劇/m
+      expect(page.body).to match /追日劇.*追韓劇.*吃午餐/m
     end
 
 
